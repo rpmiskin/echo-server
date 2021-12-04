@@ -5,7 +5,7 @@ app.disable('x-powered-by');
 app.use(express.json());
 app.all('*', (req, res) => {
     const {method, url, headers, query, body} = req;
-    res.status(query.fail || 200).set('x-echo', 'true').send({method, url, headers, query, body})
+    res.status(query.fail || 200).set('x-echo', 'true').send({version:1, method, url, headers, query, body})
 })
 
 app.listen(port, () => {
